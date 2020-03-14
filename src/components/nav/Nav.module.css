@@ -1,0 +1,22 @@
+.nav{
+   padding: 0 40px;
+   grid-area: n;
+   background-color: #71C9F8;
+ 
+ }
+ .nav a{
+   display: inline-block;
+   text-decoration: none;
+   padding: 5px 0;
+   color: aliceblue;
+   font-size: 18px;
+ }
+ .nav a:hover{
+   color: #133f81;
+ }
+
+.nav  .active {
+   color: #133f81;
+    font-size: 20px;
+    font-weight: 600;
+ }

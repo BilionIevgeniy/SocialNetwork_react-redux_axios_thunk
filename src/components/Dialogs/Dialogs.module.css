@@ -1,0 +1,18 @@
+.dialogs{
+    margin-left: 5px;
+    border-right: 2px solid lightslategrey;
+}
+.dialog{
+    padding: 10px;
+}
+.dialog.active{
+    color: #fff;
+}
+
+.messages{
+
+}
+
+.message{
+    padding: 10px;
+}
