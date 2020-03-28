@@ -2,10 +2,10 @@ import React ,{createRef} from 'react';
 import css from './Dialogs.module.css'
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
-import {addMessActionCreator,updMessActionCreator} from "../../redux/dialogs-reducer";
+
 
 const Dialogs = (props) => {
-    const{dialogData, messagesData,messegaText}= props.state.dialogPage;
+    const{dialogData, messagesData,messegaText}= props.dialogState;
     let comentRef = createRef();
     
 
@@ -14,11 +14,11 @@ const Dialogs = (props) => {
 
     let onChange = (e)=>{
         let text = e.target.value;
-        props.dispatch(updMessActionCreator(text))
+        props.onChange(text)
     }
 
     let addComment = ()=>{
-        props.dispatch(addMessActionCreator())
+        props.addComment()
     };
 
     return (

@@ -1,6 +1,8 @@
 const ADD_MESS = 'ADD-MESS';
 const UPD_MESS = 'UPD-MESS';
+
 let messiD = 7;
+
 let dialogPage =  {
     dialogData: [
         {id: 1,name: 'Dima'},
@@ -21,26 +23,22 @@ let dialogPage =  {
     messegaText: "add message"
 }
 
-export const dialogsReducer = (state= dialogPage,action)=>{
-
+export const dialogsReducer = (state = dialogPage,action)=>{
    switch(action.type){
-
+    
       case  UPD_MESS :
-          state.messegaText = action.newText;
-          break;
+           return {
+            ...state,
+            messegaText : action.newText,
+          };
+         
 
       case ADD_MESS :
-          
-          let newMess = {
-              id: messiD++,
-              mes: state.messegaText
+          return {
+            ...state,
+            messagesData : [...state.messagesData, { id: messiD++, mes: state.messegaText}],
+            messegaText : '',
           };
-          state.messagesData.push(newMess);
-          state.messegaText='';
-          ++messiD;
-          return state;
-      
-
 
           default: 
           return state;

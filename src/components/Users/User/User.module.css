@@ -1,0 +1,28 @@
+.wrapper{
+   display: flex;
+   margin-bottom: 15px;
+   margin-top: 15px;
+}
+.avatar{
+   width: 60px;
+   height: 60px;
+   display: block;
+   margin-bottom: 2px;
+   margin-right: 50px;
+}
+
+.user_info{
+
+   padding: 10px 10px 0 10px;
+   border: 1px solid grey;
+   border-radius: 25px;
+   width: 100%;
+   display: flex;
+   justify-content: space-between;
+}
+
+.user_name{
+   display: flex;
+   flex-flow: column wrap;
+
+}

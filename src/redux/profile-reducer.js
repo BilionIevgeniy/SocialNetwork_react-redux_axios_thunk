@@ -2,7 +2,7 @@ const ADD_POST = 'ADD-POST';
 const UPDATE_TEXT = 'UPDATE-TEXT';
 
 let postiD = 5;
-let profilePage = {
+let initislState = {
     postData: [
         {id: 1,  likeCount: '10',  text: 'First post'},
         {id: 2,  likeCount: '3',  text: 'Second post'},
@@ -12,25 +12,25 @@ let profilePage = {
     postText: 'add Text',
 }
 
-const profileReducer = (state = profilePage,action)=>{
-   
+const profileReducer = (state = initislState,action)=>{
+
    switch(action.type){
 
       case ADD_POST :
+        return {
+            ...state,
+            postData : [...state.postData,{id: postiD++,likeCount: '15',text: state.postText}],
+            postText: ''
+         };
           
-          let newPost = {
-              id: postiD,
-              likeCount: '15',
-              text: state.postText
-          };
-          state.postData.push(newPost);
-          ++postiD;
-          state.postText = '';
-          return state;
+          
 
       case  UPDATE_TEXT :
-          state.postText = action.newText;
-          return state;
+        return {
+            ...state,
+            postText: action.newText
+         };
+           
 
           default: 
           return state;

@@ -6,19 +6,19 @@ import './index.css';
 import App from './components/app/App';
 import {BrowserRouter} from "react-router-dom";
 
-import store from "./redux/store";
+import store from "./redux/store-redux";
+import { Provider } from 'react-redux';
 
 
-let renderTree = (store)=>{
+
     ReactDOM.render(
     <BrowserRouter>
-        <App store={store}/>   
+        <Provider store={store}>
+            <App />   
+        </Provider>       
     </BrowserRouter>, document.getElementById('root'));
-};
 
 
-renderTree(store);
-store.subscribe(renderTree);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

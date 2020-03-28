@@ -1,18 +1,17 @@
 import React from "react";
 import css from "./MyPosts.module.css";
 import Post from "./Post/Post";
-import {addTextActionCreator,addPostActionCreator} from "../../../redux/profile-reducer";
 
 
 const MyPosts = (props) => {
-    const {postData, postText} = props.state.profilePage;
+    const {postData, postText} = props.state;
 
     let onPostChange = ()=>{
         let text = elemRef.current.value;
-        props.dispatch(addTextActionCreator(text))
+        props.updateNewPostText(text)
     };
     let onClick = ()=>{
-      props.dispatch(addPostActionCreator())
+      props.addPost()
     }
 
     let elemRef = React.createRef();

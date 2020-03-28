@@ -1,8 +1,7 @@
 import React from "react";
 import css from "./Post.module.css";
 
-const Post = (props) => {
-  const{text, likeCount} = props
+const Post = ({text, likeCount}) => {
   return (
     <div>
       
