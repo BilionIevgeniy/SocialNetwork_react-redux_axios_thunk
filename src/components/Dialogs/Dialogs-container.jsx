@@ -9,18 +9,12 @@ let mapStateToProps= (state)=>{
     }  
   }
 
-let mapDispatchToProps= (dispatch)=>{
-    return {
-        onChange : (text)=>{
-            dispatch(updMessActionCreator(text))
-        } ,
-        addComment : ()=>{
-          dispatch(addMessActionCreator())
-        }
-    }
+let setDispatch={
+    updMessActionCreator,
+    addMessActionCreator
   }
   
   
-const DialogsContainer = connect(mapStateToProps,mapDispatchToProps)(Dialogs);
+const DialogsContainer = connect(mapStateToProps,setDispatch)(Dialogs);
 
 export default DialogsContainer;

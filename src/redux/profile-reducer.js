@@ -1,8 +1,13 @@
+import { profileAPI } from "../api/api"
+
 const ADD_POST = 'ADD-POST';
 const UPDATE_TEXT = 'UPDATE-TEXT';
+const SET_USERS_PROFILE = 'SET_USERS_PROFILE'
+
 
 let postiD = 5;
-let initislState = {
+let initialState = {
+    usersProfile: null,
     postData: [
         {id: 1,  likeCount: '10',  text: 'First post'},
         {id: 2,  likeCount: '3',  text: 'Second post'},
@@ -10,9 +15,10 @@ let initislState = {
         {id: 4,  likeCount: '10',  text: 'Firth post'}
     ],
     postText: 'add Text',
+
 }
 
-const profileReducer = (state = initislState,action)=>{
+const profileReducer = (state = initialState,action)=>{
 
    switch(action.type){
 
@@ -30,16 +36,31 @@ const profileReducer = (state = initislState,action)=>{
             ...state,
             postText: action.newText
          };
+      
+      case SET_USERS_PROFILE:
+        return{
+          ...state,
+          usersProfile : action.usersProfile
+        }
            
 
           default: 
           return state;
-
   }
-
 }
-export let addPostActionCreator = ()=>({ type : ADD_POST});
-export let addTextActionCreator = (text)=>({type:UPDATE_TEXT, newText : text});
+
+// Thunk Creators:
+export const getProfileThunkCreator = (id) => (dispatch)=>{
+  profileAPI.getProfile(id)
+                .then(data => {
+                  dispatch(setUsersProfile(data))
+                });
+}
+
+// Action Creators:
+export const addPostActionCreator = ()=>({ type : ADD_POST});
+export const addTextActionCreator = (text)=>({type:UPDATE_TEXT, newText : text});
+export const setUsersProfile = (usersProfile)=>({type:SET_USERS_PROFILE,usersProfile})
 
 
 export default profileReducer

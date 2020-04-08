@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 const Nav = () => {
   return (
     <nav className={css.nav}>
-      <div>
+      <div> 
         <NavLink activeClassName={css.active} to="/profile">
           Profile
         </NavLink>

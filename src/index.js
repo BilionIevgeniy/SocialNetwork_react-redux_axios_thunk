@@ -6,7 +6,7 @@ import './index.css';
 import App from './components/app/App';
 import {BrowserRouter} from "react-router-dom";
 
-import store from "./redux/store-redux";
+import store from "./redux/redux-store";
 import { Provider } from 'react-redux';
 
 

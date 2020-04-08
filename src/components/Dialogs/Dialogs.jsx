@@ -7,18 +7,16 @@ import Message from "./Message/Message";
 const Dialogs = (props) => {
     const{dialogData, messagesData,messegaText}= props.dialogState;
     let comentRef = createRef();
-    
-
     let newMessage = messagesData.map((item)=> <Message mes={item.mes} key={item.id}/>);
     let newDialog = dialogData.map((item)=><DialogItem name={item.name} id={item.id} key={item.id}/>);
 
     let onChange = (e)=>{
         let text = e.target.value;
-        props.onChange(text)
+        props.updMessActionCreator(text)
     }
 
     let addComment = ()=>{
-        props.addComment()
+        props.addMessActionCreator()
     };
 
     return (

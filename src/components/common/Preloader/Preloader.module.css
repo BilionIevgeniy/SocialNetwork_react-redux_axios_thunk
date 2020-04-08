@@ -1,0 +1,9 @@
+.preloader{
+   width: 60px !important;
+}
+
+.img_wrapper{
+   display: block !important;
+   width: 100%;
+   text-align: center;
+}

@@ -1,38 +1,63 @@
+import React from "react";
 import Users from "./Users";
 import { connect } from "react-redux";
-import { followAC, unfollowAC,setUsersAC, changeCurrentPageAC,setTotalUsersAC  } from "../../redux/users-reducer";
+import {changeCurrentPageAC,getUsersThunkCreator, unfollowThCr, followThCr} from "../../redux/users-reducer";
+import Preloader from "../common/Preloader/Preloader";
 
 
-let mapStateToProps =(state)=>{
-    
-    return{
-        users: state.usersPage.users,
-        pageSize : state.usersPage.pageSize,
-        totalUsersCount: state.usersPage.totalUsersCount,
-        currentPage: state.usersPage.currentPage,
 
+
+
+class UsersContainer extends React.Component {
+
+    componentDidMount() { 
+        this.props.getUsersThunkCreator(this.props.currentPage,this.props.pageSize)
     }
-};
-let mapDispatchToProps = (dispatch)=>{
-    return{
-        follow:(id)=>{
-            dispatch(followAC(id))
-        },
-        unfollow:(id)=>{
-            dispatch(unfollowAC(id))
-        },
-        setUsers:(users)=>{
-            dispatch(setUsersAC(users))
-        },
-        changeCurrentPage:(page)=>{
-            dispatch(changeCurrentPageAC(page))
-        },
-        setTotalUsers: (totalUsers)=>{
-            dispatch(setTotalUsersAC(totalUsers))
-        }
+  
+    changeCurPage = (i)=>{
+        this.props.getUsersThunkCreator(i,this.props.pageSize)
+    }
+  
+    render() {
+        
+      return   <div>
+          
+        {this.props.isFetching ? <Preloader/> 
+        : <Users 
+            unfollowThCr={this.props.unfollowThCr}
+            followThCr={this.props.followThCr}
+            followingProgress={this.props.followingProgress}
+            isAutorised = {this.props.isAutorised}
+            currentPage = {this.props.currentPage}
+            changeCurrentPage = {this.changeCurPage}
+            users = {this.props.users}
+            totalUsersCount = {this.props.totalUsersCount} 
+            pageSize = {this.props.pageSize}
+            userId = {this.props.userId}
+
+      /> }
+      
+      </div> ;
     }
 }
 
-const UsersContainer = connect(mapStateToProps,mapDispatchToProps)(Users)
 
-export default UsersContainer
+let mapStateToProps =({usersPage ,auth})=>{
+    
+    return {
+        followingProgress:usersPage.followInProgress,
+        isAutorised: auth.isAuthed,
+        users: usersPage.users,
+        pageSize : usersPage.pageSize,
+        totalUsersCount: usersPage.totalUsersCount,
+        currentPage: usersPage.currentPage,
+        isFetching: usersPage.isFetching,
+        userId: usersPage.userId,
+    }
+}
+
+let mapDispatchToProps = {unfollowThCr, followThCr,changeCurrentPageAC,getUsersThunkCreator,}
+
+
+
+export default connect(mapStateToProps,mapDispatchToProps)(UsersContainer)

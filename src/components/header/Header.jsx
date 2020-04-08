@@ -1,10 +1,18 @@
 import React from 'react';
 import css from './Header.module.css'
+import { NavLink } from 'react-router-dom';
 
-const Header = () => {
+const Header = (props) => {
    return  (
    <header className={`${css.header} `}>
       <img className={`rounded-circle`} src="https://aer.eu/wp-content/uploads/2017/06/twitter-logo-4.png" alt=""/>
+      <div className={css.headerButton}>
+         {props.auth.isAuthed === 0  
+         ? 
+         <button className={`btn btn-primary`}>Log Out</button>  
+         : 
+         <NavLink to='/login'><button className={`btn btn-primary`}> Log In </button></NavLink>}
+      </div>
    </header>)
 }
 export default Header;
