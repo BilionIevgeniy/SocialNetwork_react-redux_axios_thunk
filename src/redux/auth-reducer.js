@@ -25,6 +25,7 @@ const authReducer = (state = initialState,action)=>{
 }
 export default authReducer;
 
+
 // Thunk Creator
 export const setAuthedUserThCr = ()=>(dispatch)=>{
    authAPI.setMe()

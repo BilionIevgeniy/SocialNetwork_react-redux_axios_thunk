@@ -4,6 +4,7 @@ import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
 
 
+
 const Dialogs = (props) => {
     const{dialogData, messagesData,messegaText}= props.dialogState;
     let comentRef = createRef();
@@ -19,7 +20,7 @@ const Dialogs = (props) => {
         props.addMessActionCreator()
     };
 
-    return (
+    return(
         <div className={` d-flex `}>
 
             <div className={`col-4 ${css.dialogs}`}>

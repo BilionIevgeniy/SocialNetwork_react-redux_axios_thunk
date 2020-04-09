@@ -10,6 +10,7 @@ import Settings from '../Settings/Settings';
 import News from '../News/News';
 import ProfileContainer from '../profile/ProfileContainer';
 import UsersContainer from '../Users/Users-container';
+import LoginPage from '../LoginPage/LoginPage';
 
 
 const App = () => {
@@ -28,6 +29,7 @@ const App = () => {
                     <Route path='/news' component={News}/>
                     <Route path='/music' component={Music}/>
                     <Route path='/settings' component={Settings}/>
+                    <Route path='/login' component={LoginPage}/>
                   </div>
                 </div>
             </div>
