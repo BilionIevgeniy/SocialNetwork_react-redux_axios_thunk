@@ -1,25 +1,31 @@
-import { authAPI } from "../api/api"
+import {
+   authAPI
+} from "../api/api"
+import {
+   Redirect
+} from "react-router-dom"
 
 const SET_AUTHED_USER = 'SET_AUTHED_USER'
 
 let initialState = {
-   id:  null,
-   email:  null,
+   id: null,
+   email: null,
    login: null,
-   isAuthed: null
+   isAuthed: false
 }
 
-const authReducer = (state = initialState,action)=>{
+const authReducer = (state = initialState, action) => {
 
-   switch(action.type) {
+   switch (action.type) {
       case SET_AUTHED_USER:
-         return{
+         return {
             ...state,
-            ...action.data,
-            isAuthed:action.data.resultCode
+            ...action.payload,
+               isAuthed: action.payload.isAuth
          }
 
-         default: return state
+         default:
+            return state
    }
 
 }
@@ -27,11 +33,50 @@ export default authReducer;
 
 
 // Thunk Creator
-export const setAuthedUserThCr = ()=>(dispatch)=>{
+export const setAuthedUserThCr = () => (dispatch) => {
    authAPI.setMe()
-        .then(response => {
-           const {id, email, login} = response.data.data
-            dispatch(setAuthedUser(id, email, login,response.data.resultCode))
-        })
+      .then(response => {
+         if (response.resultCode === 0) {
+            const {
+               id,
+               email,
+               login
+            } = response.data
+            dispatch(setAuthedUser(id, email, login, true))
+         }
+
+      })
 }
-export const setAuthedUser = (id, email, login,resultCode)=>({type: SET_AUTHED_USER, data:{id, email, login,resultCode}});
+
+export const logInUserThCr = (email, password, rememberMe) => (dispatch) => {
+   authAPI.getCaptcha()
+      .then(url => {
+         authAPI.logIn(email, password, rememberMe)
+            .then(response => {
+               if (response.resultCode === 0) {
+                  dispatch(setAuthedUserThCr())
+               }
+            })
+
+      })
+
+}
+export const logOutThCr = () => (dispatch) => {
+   authAPI.logOut()
+      .then(response => {
+         if (response.resultCode === 0) {
+            dispatch(setAuthedUser(null, null, null, false))
+         }
+      })
+}
+
+// Action Creators
+export const setAuthedUser = (id, email, login, isAuth) => ({
+   type: SET_AUTHED_USER,
+   payload: {
+      id,
+      email,
+      login,
+      isAuth
+   }
+});

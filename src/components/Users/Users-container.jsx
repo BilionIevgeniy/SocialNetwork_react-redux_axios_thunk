@@ -7,7 +7,7 @@ import {
   unfollowThCr,
   followThCr,
 } from "../../redux/users-reducer";
-import Preloader from "../common/Preloader/Preloader";
+
 import { withAuthRedirect } from "../../hoc/WithAuthRedirect";
 import { compose } from "redux";
 

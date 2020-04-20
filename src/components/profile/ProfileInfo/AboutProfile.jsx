@@ -1,26 +1,47 @@
 import React from "react";
 
 class ProfileStatus extends React.Component {
+  
   state = {
     editMode: false,
-    status : "hello"
+    status: this.props.status,
   };
 
-  activateEditMode=()=>{
-      this.setState({
-         editMode :true
-      })
-  } 
+  activateEditMode = () => {
+    this.setState({
+      editMode: true,
+    });
+  };
 
-  deactivateEditMode=(e)=>{
-     let text = e.target.value;
+  deactivateEditMode = () => {
+    this.props.updateStatusThunkCreator(this.state.status,this.props.id)
+    this.setState({
+      editMode: false,
+    });
+    
+  };
+
+  onInputChange=(e)=>{
+    console.log('input value ' +  e.target.value)
+    let text = e.target.value;
+    this.setState({
+      status: text
+    });
+  }
+
+  componentDidUpdate(prevProps,prevState){
+    
+    if(prevState.status !== this.state.status){
       this.setState({
-         editMode : false,
-         status : text
-      })
+        status: this.state.status
+      });
+
+    }
+
   }
 
   render() {
+    // debugger
     const { profile } = this.props;
     return (
       <div>
@@ -32,16 +53,27 @@ class ProfileStatus extends React.Component {
 
         <div>
           <div>
+
             {!this.state.editMode && (
               <div>
-                <span onDoubleClick={this.activateEditMode} >{this.state.status}</span>
+                <span onDoubleClick={this.activateEditMode}>
+                  Status: {this.props.status}
+                </span>
               </div>
             )}
+
             {this.state.editMode && (
               <div>
-                <input onBlur={this.deactivateEditMode} type="text" defaultValue={this.state.status} />
+                <input
+                  autoFocus={true}
+                  onBlur={this.deactivateEditMode}
+                  type="text"
+                  value={this.state.status}
+                  onChange={this.onInputChange}
+                />
               </div>
             )}
+
           </div>
           <div className="aboutMe">
             <div className="fullname">I am : {profile.fullName}</div>
@@ -53,7 +85,7 @@ class ProfileStatus extends React.Component {
               facebook: {profile.contacts.facebook}
             </div>
             <div className="website">website: {profile.contacts.website}</div>
-            <div className="vk">vk {profile.contacts.vk}</div>
+            <div className="vk">vk: {profile.contacts.vk}</div>
             <div className="twitter">twitter {profile.contacts.twitter}</div>
             <div className="instagram">
               instagram: {profile.contacts.instagram}

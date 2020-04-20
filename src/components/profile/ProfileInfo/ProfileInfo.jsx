@@ -1,7 +1,7 @@
 import React from "react";
 import Preloader from "../../common/Preloader/Preloader";
 import css from "./ProfileInfo.module.css";
-import ProfileStatus from "./ProfileStatus"
+import ProfileStatus from "./AboutProfile"
 
 const ProfileInfo = (props) => {
   const { profile } = props;
@@ -16,7 +16,7 @@ const ProfileInfo = (props) => {
         {profile === null ? (
           <Preloader />
         ) : (
-          <ProfileStatus  {...props}/>
+          <ProfileStatus status={props.usersStatus} {...props}/>
         )}
       </div>
     </div>

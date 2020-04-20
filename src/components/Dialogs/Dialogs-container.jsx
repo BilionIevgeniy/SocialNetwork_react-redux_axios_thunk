@@ -1,11 +1,9 @@
-import React from 'react'
+
 import Dialogs from "./Dialogs";
 import {
-  addMessActionCreator,
-  updMessActionCreator,
+  addMessActionCreator
 } from "../../redux/dialogs-reducer";
 import { connect } from "react-redux";
-import { Redirect } from "react-router-dom";
 import { withAuthRedirect } from '../../hoc/WithAuthRedirect';
 import { compose } from 'redux';
 
@@ -16,8 +14,7 @@ let mapStateToProps = (state) => {
 };
 
 let setDispatch = {
-  updMessActionCreator,
-  addMessActionCreator,
+  addMessActionCreator
 };
 
 

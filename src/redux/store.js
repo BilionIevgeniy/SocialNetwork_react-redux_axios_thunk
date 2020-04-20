@@ -7,7 +7,7 @@ let store = {
         
     },
 
-    _renderTree() {},
+    _renderTree:  {},
 
     subscribe(observer){
         this._renderTree = observer;
