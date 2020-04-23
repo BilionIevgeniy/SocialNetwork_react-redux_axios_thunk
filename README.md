@@ -1,11 +1,11 @@
 This is studying project Social Network with next technologies:
 -ReactJS
--React-Redux
--React-Form
--React-Selectors
--React-Router
--Redux-thunks
--Hooks
+__React-Redux
+__React-Form
+__React-Selectors
+__React-Router
+__Redux-thunks
+__Hooks
 
 
 
