@@ -8,6 +8,8 @@ __Redux-thunks
 __Hooks
 __Axios
 
+DB: https://social-network.samuraijs.com/
+
 
 
 
