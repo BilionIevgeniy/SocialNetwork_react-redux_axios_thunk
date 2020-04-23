@@ -6,6 +6,7 @@ __React-Selectors
 __React-Router
 __Redux-thunks
 __Hooks
+__Axios
 
 
 
