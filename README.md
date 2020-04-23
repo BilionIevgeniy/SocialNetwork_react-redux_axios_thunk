@@ -1,3 +1,15 @@
+This is studying project Social Network with next technologies:
+-ReactJS
+-React-Redux
+-React-Form
+-React-Selectors
+-React-Router
+-Redux-thunks
+-Hooks
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
