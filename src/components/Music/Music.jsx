@@ -5,7 +5,7 @@ const Music = () => {
   return (
     <div>
       <div className={`col`}>
-        1
+        Music Component
       </div>
       <div className={`col`}>2</div>
     </div>
