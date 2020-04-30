@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/demoSocialSamurai/static/css/main.cbc0b2c4.chunk.css",
-    "main.js": "/demoSocialSamurai/static/js/main.32acf528.chunk.js",
-    "main.js.map": "/demoSocialSamurai/static/js/main.32acf528.chunk.js.map",
-    "runtime-main.js": "/demoSocialSamurai/static/js/runtime-main.7ef30f80.js",
-    "runtime-main.js.map": "/demoSocialSamurai/static/js/runtime-main.7ef30f80.js.map",
-    "static/js/2.d804c5b7.chunk.js": "/demoSocialSamurai/static/js/2.d804c5b7.chunk.js",
-    "static/js/2.d804c5b7.chunk.js.map": "/demoSocialSamurai/static/js/2.d804c5b7.chunk.js.map",
-    "index.html": "/demoSocialSamurai/index.html",
-    "precache-manifest.69cde495b88bf03ab6137fbca35cc121.js": "/demoSocialSamurai/precache-manifest.69cde495b88bf03ab6137fbca35cc121.js",
-    "service-worker.js": "/demoSocialSamurai/service-worker.js",
-    "static/css/main.cbc0b2c4.chunk.css.map": "/demoSocialSamurai/static/css/main.cbc0b2c4.chunk.css.map",
-    "static/js/2.d804c5b7.chunk.js.LICENSE.txt": "/demoSocialSamurai/static/js/2.d804c5b7.chunk.js.LICENSE.txt",
-    "static/media/1551511784_4.jpg": "/demoSocialSamurai/static/media/1551511784_4.aec17f7e.jpg",
-    "static/media/Infinity-1s-200px.svg": "/demoSocialSamurai/static/media/Infinity-1s-200px.5bc20434.svg"
+    "main.css": "/social-network_react-redux/static/css/main.cbc0b2c4.chunk.css",
+    "main.js": "/social-network_react-redux/static/js/main.bde26fde.chunk.js",
+    "main.js.map": "/social-network_react-redux/static/js/main.bde26fde.chunk.js.map",
+    "runtime-main.js": "/social-network_react-redux/static/js/runtime-main.1c07e1b0.js",
+    "runtime-main.js.map": "/social-network_react-redux/static/js/runtime-main.1c07e1b0.js.map",
+    "static/js/2.d804c5b7.chunk.js": "/social-network_react-redux/static/js/2.d804c5b7.chunk.js",
+    "static/js/2.d804c5b7.chunk.js.map": "/social-network_react-redux/static/js/2.d804c5b7.chunk.js.map",
+    "index.html": "/social-network_react-redux/index.html",
+    "precache-manifest.5651c910728fa80dd960fb30f23cf9b3.js": "/social-network_react-redux/precache-manifest.5651c910728fa80dd960fb30f23cf9b3.js",
+    "service-worker.js": "/social-network_react-redux/service-worker.js",
+    "static/css/main.cbc0b2c4.chunk.css.map": "/social-network_react-redux/static/css/main.cbc0b2c4.chunk.css.map",
+    "static/js/2.d804c5b7.chunk.js.LICENSE.txt": "/social-network_react-redux/static/js/2.d804c5b7.chunk.js.LICENSE.txt",
+    "static/media/1551511784_4.jpg": "/social-network_react-redux/static/media/1551511784_4.aec17f7e.jpg",
+    "static/media/Infinity-1s-200px.svg": "/social-network_react-redux/static/media/Infinity-1s-200px.5bc20434.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.7ef30f80.js",
+    "static/js/runtime-main.1c07e1b0.js",
     "static/js/2.d804c5b7.chunk.js",
     "static/css/main.cbc0b2c4.chunk.css",
-    "static/js/main.32acf528.chunk.js"
+    "static/js/main.bde26fde.chunk.js"
   ]
 }
