@@ -57,7 +57,9 @@ export const authAPI = {
    },
 
    logIn(email,password,rememberMe = false){
+      debugger
       return instance.post('auth/login',{
+         
          email,
          password,
          rememberMe

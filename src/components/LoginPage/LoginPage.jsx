@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import css from './LoginPage.module.css'
 
 import { reduxForm, Field } from "redux-form";
 import {
@@ -9,7 +10,6 @@ import {
 } from "../../utils/validators/validators";
 import { Input } from "../common/FormControls/FormsControls";
 import { logInUserThCr } from "../../redux/auth-reducer";
-import { withAuthRedirect } from "../../hoc/WithAuthRedirect";
 import { Redirect } from "react-router-dom";
 
 const minLength2 = minLength(2);
@@ -54,12 +54,20 @@ const LoginForm = (props) => {
             />
           </div>
 
+
           <label className="form-check-label" htmlFor="exampleCheck1">
             Remember Me
           </label>
         </div>
       </div>
 
+      {props.error 
+      ? 
+      <div className={css.formSunmmaryError}>
+            {props.error}
+      </div>
+      : null }
+      
       <div>
         <button className="btn btn-primary">Login</button>{" "}
       </div>

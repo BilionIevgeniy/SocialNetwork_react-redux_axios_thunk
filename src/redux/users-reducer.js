@@ -13,7 +13,7 @@ let initialState = {
    totalUsersCount: 17, 
    currentPage: 1, // получаем с сервера
    isFetching: false, // при отправке запроса для крутилки
-   followInProgress: [2], //для кнопки follow/unfollow
+   followInProgress: [], //для кнопки follow/unfollow
    userId : null
 
 }

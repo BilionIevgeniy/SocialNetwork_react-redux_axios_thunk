@@ -16,7 +16,7 @@ const User = props => {
           <img className={css.avatar} src={props.url.small != null ? props.url.small : userPhoto} alt='avatar'/>
         </NavLink>
         
-        {props.isFollowed 
+        {props.isAutorised ? props.isFollowed 
         ?
           <button  disabled={props.userId === props.id} className='btn btn-info'  
             onClick={()=>{
@@ -26,7 +26,9 @@ const User = props => {
           <button  disabled={props.userId === props.id} className='btn btn-info' 
             onClick={()=>{
                 props.followThCr(props.id)
-              }}>Subscribe</button>}
+              }}>Subscribe</button>
+              :
+              null}
       </div>
 
       <div className={css.user_info}>

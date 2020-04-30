@@ -1,9 +1,7 @@
 import {
    authAPI
 } from "../api/api"
-import {
-   Redirect
-} from "react-router-dom"
+import { stopSubmit } from "redux-form"
 
 const SET_AUTHED_USER = 'SET_AUTHED_USER'
 
@@ -34,7 +32,7 @@ export default authReducer;
 
 // Thunk Creator
 export const setAuthedUserThCr = () => (dispatch) => {
-   authAPI.setMe()
+   return authAPI.setMe()
       .then(response => {
          if (response.resultCode === 0) {
             const {
@@ -50,11 +48,17 @@ export const setAuthedUserThCr = () => (dispatch) => {
 
 export const logInUserThCr = (email, password, rememberMe) => (dispatch) => {
    authAPI.getCaptcha()
-      .then(url => {
+      .then(() => {
+
          authAPI.logIn(email, password, rememberMe)
             .then(response => {
+             
                if (response.resultCode === 0) {
                   dispatch(setAuthedUserThCr())
+               }
+               else{
+                  let message = response.messages.length > 0? response.messages[0] : 'Some error'
+                  dispatch(stopSubmit("login",{_error: message}))
                }
             })
 
