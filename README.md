@@ -1,17 +1,17 @@
 This is studying project Social Network with next technologies:
 -ReactJS
-__React-Redux
-__React-Form
-__React-Selectors
-__React-Router
-__Redux-thunks
-__Hooks
-__Axios
+</br>React-Redux
+</br>React-Form
+</br>React-Selectors
+</br>React-Router
+</br>Redux-thunks
+</br>Hooks
+</br>Axios
 
 DB: https://social-network.samuraijs.com/
 
 
-<a href = "https://bilionievgen.github.io/social-network_react-redux/#/" > DEMO </a>
+<a target='_blank' href = "https://bilionievgen.github.io/social-network_react-redux/#/" > DEMO </a>
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
