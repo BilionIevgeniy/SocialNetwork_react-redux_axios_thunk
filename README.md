@@ -11,7 +11,7 @@ __Axios
 DB: https://social-network.samuraijs.com/
 
 
-
+<a href = "https://bilionievgen.github.io/social-network_react-redux/#/" > DEMO </a>
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
