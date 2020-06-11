@@ -1,5 +1,5 @@
 This is studying project Social Network with next technologies:
-</br>-ReactJS
+</br>ReactJS
 </br>React-Redux
 </br>React-Form
 </br>React-Selectors
@@ -7,12 +7,13 @@ This is studying project Social Network with next technologies:
 </br>Redux-thunks
 </br>Hooks
 </br>Axios
+
+
+<a target='_blank' href = "https://bilionievgen.github.io/social-network_react-redux/#/" > DEMO </a>
 </br>email for log in : bilionjenia@ukr.net 
 </br>pass for login: free2020
 </br>DB: https://social-network.samuraijs.com/
 
-
-<a target='_blank' href = "https://bilionievgen.github.io/social-network_react-redux/#/" > DEMO </a>
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
