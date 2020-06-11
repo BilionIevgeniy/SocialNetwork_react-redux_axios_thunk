@@ -1,5 +1,5 @@
 This is studying project Social Network with next technologies:
--ReactJS
+</br>-ReactJS
 </br>React-Redux
 </br>React-Form
 </br>React-Selectors
@@ -7,7 +7,8 @@ This is studying project Social Network with next technologies:
 </br>Redux-thunks
 </br>Hooks
 </br>Axios
-
+</br>email for log in : bilionjenia@ukr.net 
+</br>pass for login: free2020
 DB: https://social-network.samuraijs.com/
 
 
