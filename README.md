@@ -10,9 +10,10 @@ This is studying project Social Network with next technologies:
 
 
 <a target='_blank' href = "https://bilionievgen.github.io/social-network_react-redux/#/" > DEMO </a>
+First login in </br>DB: https://social-network.samuraijs.com/
 </br>email for log in : bilionjenia@ukr.net 
 </br>pass for login: free2020
-</br>DB: https://social-network.samuraijs.com/
+
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
