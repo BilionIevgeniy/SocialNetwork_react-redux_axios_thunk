@@ -9,7 +9,7 @@ This is studying project Social Network with next technologies:
 </br>Axios
 </br>email for log in : bilionjenia@ukr.net 
 </br>pass for login: free2020
-DB: https://social-network.samuraijs.com/
+</br>DB: https://social-network.samuraijs.com/
 
 
 <a target='_blank' href = "https://bilionievgen.github.io/social-network_react-redux/#/" > DEMO </a>
