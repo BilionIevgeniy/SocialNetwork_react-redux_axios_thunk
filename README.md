@@ -10,7 +10,7 @@ This is studying project Social Network with next technologies:
 
 
 <a target='_blank' href = "https://bilionievgen.github.io/social-network_react-redux/#/" > DEMO </a>
-First login in </br>DB: https://social-network.samuraijs.com/
+First login in(not all features are available in the free version) </br>DB: https://social-network.samuraijs.com/
 </br>email for log in : bilionjenia@ukr.net 
 </br>pass for login: free2020
 
