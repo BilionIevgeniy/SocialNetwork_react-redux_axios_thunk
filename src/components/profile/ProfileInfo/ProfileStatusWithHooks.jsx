@@ -4,33 +4,35 @@ const ProfileStatusWithHooks = (props) => {
   const { profile } = props;
 
   //STATE HOOKS
-  const [editMode, setEditMode] = useState(false)
-  const [status, setStatus] = useState(props.status)
+  const [editMode, setEditMode] = useState(false);
+  const [status, setStatus] = useState(props.status);
 
   // EFFECT HOOKS
-    useEffect(() => {
-      // effect
-      setStatus(props.status)
+  useEffect(() => {
+    // effect
+    setStatus(props.status);
 
-      return () => {
-        
-        // cleanup
-      }
-    }, [
-      props.status 
-      // input
-    ])
+    return () => {
+      // cleanup
+    };
+  }, [
+    props.status,
+    // input
+  ]);
 
   // CallBacks
-  const onInputChange=(e)=>{setStatus(e.target.value)}
+  const onInputChange = (e) => {
+    setStatus(e.target.value);
+  };
 
-  const activateEditMode = ()=>{setEditMode(true)}
+  const activateEditMode = () => {
+    setEditMode(true);
+  };
 
-  const deActivateEditMode = ()=>{
-    props.updateStatusThunkCreator(status,props.id)
-    setEditMode(false)
-  }
-
+  const deActivateEditMode = () => {
+    props.updateStatusThunkCreator(status, props.id);
+    setEditMode(false);
+  };
 
   return (
     <div>
@@ -42,16 +44,13 @@ const ProfileStatusWithHooks = (props) => {
 
       <div>
         <div>
-
-          {!editMode && (
+          {!editMode ? (
             <div>
               <span onDoubleClick={activateEditMode}>
                 Status: {props.status}
               </span>
             </div>
-          )}
-
-          {editMode && (
+          ) : (
             <div>
               <input
                 autoFocus={true}

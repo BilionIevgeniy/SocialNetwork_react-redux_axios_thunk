@@ -1,4 +1,4 @@
-import { addPostActionCreator } from "../../../redux/profile-reducer";
+import { addPostActionCreator } from "../../../store/profile-reducer";
 import { connect } from "react-redux";
 import React from "react";
 import css from "./MyPosts.module.css";
@@ -14,18 +14,14 @@ import {
 const minLength2 = minLength(2);
 const maxLength15 = maxLength(15);
 
-const MyPosts =  ({state,addPostActionCreator} ) => {
-  
-
+const MyPosts = ({ state, addPostActionCreator }) => {
   const { postData } = state;
 
   let newPostData = postData.map((item) => (
     <Post key={item.id} likeCount={item.likeCount} text={item.text} />
   ));
 
-  
-
-  const SendPostForm = ({handleSubmit}) => {
+  const SendPostForm = ({ handleSubmit }) => {
     return (
       <form onSubmit={handleSubmit}>
         <Field
@@ -56,9 +52,7 @@ const MyPosts =  ({state,addPostActionCreator} ) => {
       <ReduxSendPostForm onSubmit={SendPost} />
     </div>
   );
-
-}
-
+};
 
 let mapStateToProps = (state) => {
   return {

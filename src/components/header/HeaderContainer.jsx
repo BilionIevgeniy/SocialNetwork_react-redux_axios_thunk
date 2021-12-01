@@ -1,27 +1,20 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import Header from './Header';
-import { logOutThCr } from '../../redux/auth-reducer';
-import { compose } from 'redux';
-
-
+import React from "react";
+import { connect } from "react-redux";
+import { logOutThCr } from "../../store/auth-reducer";
+import { compose } from "redux";
+import Header from "./Header";
 
 class HeaderContainer extends React.Component {
-   
-   render(){
-      return <Header {...this.props} />
-   }
+  render() {
+    return <Header {...this.props} />;
+  }
 }
-let mapStateToProps = (state)=>({
-   auth: state.auth
-})
+let mapStateToProps = (state) => ({
+  auth: state.auth,
+});
 
-let setDispatch ={
-   logOutThCr
-}
+let setDispatch = {
+  logOutThCr,
+};
 
-
-
-export default compose(
-   connect(mapStateToProps,setDispatch))
-   (HeaderContainer)
+export default compose(connect(mapStateToProps, setDispatch))(HeaderContainer);

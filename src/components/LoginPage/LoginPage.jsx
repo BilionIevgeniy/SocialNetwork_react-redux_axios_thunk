@@ -9,7 +9,7 @@ import {
   maxLength,
 } from "../../utils/validators/validators";
 import { Input } from "../common/FormControls/FormsControls";
-import { logInUserThCr } from "../../redux/auth-reducer";
+import { logInUserThCr } from "../../store/auth-reducer";
 import { Redirect } from "react-router-dom";
 
 const minLength2 = minLength(2);

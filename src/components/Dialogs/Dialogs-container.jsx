@@ -1,8 +1,6 @@
 
 import Dialogs from "./Dialogs";
-import {
-  addMessActionCreator
-} from "../../redux/dialogs-reducer";
+import { addMessActionCreator } from "../../store/dialogs-reducer";
 import { connect } from "react-redux";
 import { withAuthRedirect } from '../../hoc/WithAuthRedirect';
 import { compose } from 'redux';
