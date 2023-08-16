@@ -25,7 +25,7 @@ export default appReducer;
 
 // Thunk Creators
 
-export const initializeAppThCr = () => (dispatch)=>{
+export const initializeAppThank = () => (dispatch)=>{
    let promise = dispatch(setAuthedUserThCr())
    Promise.all([promise]).then(()=>{
       dispatch(initializedSuccess())

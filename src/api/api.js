@@ -57,9 +57,7 @@ export const authAPI = {
    },
 
    logIn(email,password,rememberMe = false){
-      debugger
       return instance.post('auth/login',{
-         
          email,
          password,
          rememberMe
@@ -75,6 +73,7 @@ export const authAPI = {
          
          return response.data})
    },
+
    getCaptcha(){
       return instance.get('security/get-captcha-url')
       .then(response=>response.data.url)

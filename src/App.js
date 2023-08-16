@@ -2,24 +2,24 @@ import React from "react";
 import { Route, withRouter } from "react-router-dom";
 
 import css from "./App.module.css";
-import HeaderComponent from "./components/Header/HeaderContainer";
-import Nav from "./components/Nav/Nav";
+import HeaderComponent from "./components/header/HeaderContainer";
+import Nav from "./components/nav/Nav";
 import DialogsContainer from "./components/Dialogs/Dialogs-container";
-import Music from "./components/Music/Music";
+import Music from "./components/music/Music";
 import Settings from "./components/Settings/Settings";
 import News from "./components/News/News";
-import ProfileContainer from "./components/Profile/ProfileContainer";
+import ProfileContainer from "./components/profile/ProfileContainer";
 import UsersContainer from "./components/Users/Users-container";
-import LoginPage from "./components/LoginPage/LoginPage";
+import LoginPage from "./components/login/LoginPage";
 
 import { connect } from "react-redux";
 import { compose } from "redux";
 import Preloader from "./components/common/Preloader/Preloader";
-import { initializeAppThCr } from "./store/app-reducer";
+import { initializeAppThank } from "./store/app-reducer";
 
 class App extends React.Component {
   componentDidMount() {
-    this.props.initializeAppThCr();
+    this.props.initializeAppThank();
   }
 
   render() {
@@ -31,10 +31,7 @@ class App extends React.Component {
             <Nav />
             <div className={`${css.content_wrapper}`}>
               <Route path="/dialogs" render={() => <DialogsContainer />} />
-              <Route
-                path="/profile/:userId?"
-                render={() => <ProfileContainer />}
-              />
+              <Route path="/profile/:userId?" render={() => <ProfileContainer />} />
               <Route path="/users" render={() => <UsersContainer />} />
               <Route path="/news" component={News} />
               <Route path="/music" component={Music} />
@@ -58,6 +55,6 @@ const mapStateToProps = (state) => {
 };
 
 export default compose(
-  connect(mapStateToProps, { initializeAppThCr }),
+  connect(mapStateToProps, { initializeAppThank }),
   withRouter
 )(App);

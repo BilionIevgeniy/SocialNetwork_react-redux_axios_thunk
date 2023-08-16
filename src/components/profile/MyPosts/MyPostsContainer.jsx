@@ -1,67 +1,32 @@
-import { addPostActionCreator } from "../../../store/profile-reducer";
-import { connect } from "react-redux";
-import React from "react";
-import css from "./MyPosts.module.css";
-import Post from "./Post/Post";
-import { reduxForm, Field } from "redux-form";
-import { Textarea } from "../../common/FormControls/FormsControls";
-import {
-  required,
-  minLength,
-  maxLength,
-} from "../../../utils/validators/validators";
+import React from 'react';
+import {useDispatch, useSelector} from 'react-redux';
+import css from './MyPosts.module.css';
+import Post from './Post/Post';
+import SendPostForm from './MyPostForm';
+import {addPostActionCreator} from '../../../store/profile-reducer';
 
-const minLength2 = minLength(2);
-const maxLength15 = maxLength(15);
+const MyPosts = () => {
+	const dispatch = useDispatch();
+	const {profilePage} = useSelector((state) => ({
+		profilePage: state.profilePage,
+	}));
+	const {postData} = profilePage;
+	let newPostData = postData.map((item) => (
+		<Post key={item.id} likeCount={item.likeCount} text={item.text} />
+	));
 
-const MyPosts = ({ state, addPostActionCreator }) => {
-  const { postData } = state;
+	const SendPost = (data) => {
+		dispatch(addPostActionCreator(data.post));
+	};
 
-  let newPostData = postData.map((item) => (
-    <Post key={item.id} likeCount={item.likeCount} text={item.text} />
-  ));
-
-  const SendPostForm = ({ handleSubmit }) => {
-    return (
-      <form onSubmit={handleSubmit}>
-        <Field
-          className="form-control form-group"
-          validate={[required, minLength2, maxLength15]}
-          name="post"
-          component={Textarea}
-          placeholder="Add Post"
-        />
-        <button className="btn btn-primary">Add Post</button>
-      </form>
-    );
-  };
-
-  const ReduxSendPostForm = reduxForm({
-    form: "sendPost",
-  })(SendPostForm);
-
-  const SendPost = (data) => {
-    addPostActionCreator(data.post);
-  };
-
-  return (
-    <div>
-      <div className={`${css.head}`}>Posts:</div>
-      <div>{newPostData}</div>
-      <div className={`${css.head}`}>Send Post:</div>
-      <ReduxSendPostForm onSubmit={SendPost} />
-    </div>
-  );
+	return (
+		<div>
+			<div className={`${css.head}`}>Posts:</div>
+			<div>{newPostData}</div>
+			<div className={`${css.head}`}>Send Post:</div>
+			<SendPostForm onSubmit={SendPost} />
+		</div>
+	);
 };
 
-let mapStateToProps = (state) => {
-  return {
-    state: state.profilePage,
-  };
-};
-
-let mapDispatchToProps = {
-  addPostActionCreator,
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(MyPosts);
+export default MyPosts;

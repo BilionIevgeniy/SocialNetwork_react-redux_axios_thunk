@@ -41,7 +41,6 @@ class ProfileStatus extends React.Component {
   }
 
   render() {
-    // debugger
     const { profile } = this.props;
     return (
       <div>

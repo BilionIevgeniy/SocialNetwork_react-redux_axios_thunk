@@ -34,7 +34,7 @@ export const dialogsReducer = (state = dialogPage,action)=>{
           return state;
   }
 }
-export let addMessActionCreator = (text)=>({type:ADD_MESS, text});
+export let addMessageActionCreator = (text)=>({type:ADD_MESS, text});
 
 
 export default dialogsReducer

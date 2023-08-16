@@ -19,11 +19,11 @@ const authReducer = (state = initialState, action) => {
          return {
             ...state,
             ...action.payload,
-               isAuthed: action.payload.isAuth
+            isAuthed: action.payload.isAuth
          }
 
-         default:
-            return state
+      default:
+         return state
    }
 
 }
@@ -46,25 +46,25 @@ export const setAuthedUserThCr = () => (dispatch) => {
       })
 }
 
-export const logInUserThCr = (email, password, rememberMe) => (dispatch) => {
+export const logInUserThank = (email, password, rememberMe) => (dispatch) => {
    authAPI.getCaptcha()
       .then(() => {
-
          authAPI.logIn(email, password, rememberMe)
             .then(response => {
-             
+
                if (response.resultCode === 0) {
                   dispatch(setAuthedUserThCr())
                }
-               else{
-                  let message = response.messages.length > 0? response.messages[0] : 'Some error'
-                  dispatch(stopSubmit("login",{_error: message}))
+               else {
+                  let message = response.messages.length > 0 ? response.messages[0] : 'Some error'
+                  dispatch(stopSubmit("login", { _error: message }))
                }
             })
 
       })
 
 }
+
 export const logOutThCr = () => (dispatch) => {
    authAPI.logOut()
       .then(response => {

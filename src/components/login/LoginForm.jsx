@@ -1,25 +1,22 @@
-import React from "react";
-import { connect } from "react-redux";
-import css from './LoginPage.module.css'
-
-import { reduxForm, Field } from "redux-form";
+import React from 'react';
+import css from './LoginPage.module.css';
 import {
-  required,
-  minLength,
-  maxLength,
-} from "../../utils/validators/validators";
-import { Input } from "../common/FormControls/FormsControls";
-import { logInUserThCr } from "../../store/auth-reducer";
-import { Redirect } from "react-router-dom";
+	required,
+	minLength,
+	maxLength,
+  } from "../../utils/validators/validators";
+import {Input} from '../common/FormControls/FormsControls';
+import { Field } from 'redux-form';
 
 const minLength2 = minLength(2);
 const maxLength15 = maxLength(15);
 
-const LoginForm = (props) => {
-  const { handleSubmit } = props;
-  return (
-    // отменяем действие сабмита
-    <form onSubmit={handleSubmit}>
+let LoginForm = (props) => {
+	const { handleSubmit } = props;
+	const {error} = props;
+	console.log('error',error);
+	return (
+		<form onSubmit={handleSubmit}>
       <div>
         <div className="form-group">
           <Field
@@ -61,10 +58,10 @@ const LoginForm = (props) => {
         </div>
       </div>
 
-      {props.error 
+      {error 
       ? 
       <div className={css.formSunmmaryError}>
-            {props.error}
+            {error}
       </div>
       : null }
       
@@ -72,38 +69,7 @@ const LoginForm = (props) => {
         <button className="btn btn-primary">Login</button>{" "}
       </div>
     </form>
-  );
+	);
 };
 
-const LoginReduxForm = reduxForm({
-  // a unique identifier for this form
-  form: "login",
-})(LoginForm);
-
-const LoginPage = (props) => {
-
-  const onSubmit = ({ login, password, rememberMe }) => {
-    props.logInUserThCr(login, password, rememberMe);
-  };
-
-  return (
-    <>
-      {props.isAuth === true ? (
-        <Redirect to="/profile" />
-      ) : (
-        <>
-          <h1>Login</h1>
-          <LoginReduxForm onSubmit={onSubmit} />
-        </>
-      )}
-    </>
-  );
-};
-
-const mapState = (state) => {
-  return {
-    isAuth: state.auth.isAuthed,
-  };
-};
-
-export default connect(mapState, { logInUserThCr })(LoginPage);
+export default LoginForm;

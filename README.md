@@ -8,6 +8,9 @@ This is studying project Social Network with next technologies:
 </br>Hooks
 </br>Axios
 
+Email: free@samuraijs.com
+Password: free
+
 
 
 
